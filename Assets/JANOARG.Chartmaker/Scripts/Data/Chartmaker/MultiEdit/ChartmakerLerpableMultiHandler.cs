@@ -55,7 +55,7 @@ namespace JANOARG.Chartmaker.Data.Chartmaker.MultiEdit
     }
 
     public enum LerpableOperation {
-        Set, Add, Multiply, Min, Max, Mirror, Expression
+        Set, Add, Multiply, Min, Max, Mirror, Expression, Random
     }
     public static class LerpableOperations {
         public static Dictionary<LerpableOperation, Func<float, float, float>> Get = new Dictionary<LerpableOperation, Func<float, float, float>> 
@@ -66,6 +66,7 @@ namespace JANOARG.Chartmaker.Data.Chartmaker.MultiEdit
             { LerpableOperation.Min,        (from, to) => Mathf.Min(from, to) },
             { LerpableOperation.Max,        (from, to) => Mathf.Max(from, to) },
             { LerpableOperation.Mirror,     (from, to) =>    to - (from - to) },
+            { LerpableOperation.Random,     (from, to) => UnityEngine.Random.Range(from, to) }
         };
     }
 }
